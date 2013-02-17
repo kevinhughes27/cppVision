@@ -9,13 +9,15 @@ using namespace std;
 int main()
 {
 	// File IO test
-	ofstream myfile;
-	myfile.open ("example.txt");
-	myfile << "Writing this to a file.\n";
-	myfile.close();
+	ofstream f;
+	f.open ("target.txt");
+	f << "1\n";
+	f << "320\n";
+	f << "240\n";
+	f.close();
 	
 	// OpenCV test
-	Mat image = imread("../image.png");
+	Mat image = imread("image.png");
 	imshow("image", image);
 	waitKey();
 	
