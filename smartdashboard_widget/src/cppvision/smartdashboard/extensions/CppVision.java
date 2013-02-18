@@ -43,6 +43,10 @@ public class CppVision extends WPICameraExtension  {
     
         // run vision system
         if( Robot.getTable().getBoolean("runVision") ) {
+            
+            Robot.getTable().putBoolean("doneVision", false);
+            
+            // save image
             cvSaveImage( "image.png", image );
             
             // call OpenCV vision program
@@ -92,7 +96,7 @@ public class CppVision extends WPICameraExtension  {
             
             // draw camera overlay
             // default ovelay
-            rawImage.drawLine(hA, hB, WPIColor.RED, 1);
+            rawImage.drawLine(vA, vB, WPIColor.RED, 1);
             rawImage.drawLine(hA, hB, WPIColor.RED, 1);
             
             // "aimed" overlay
@@ -110,7 +114,7 @@ public class CppVision extends WPICameraExtension  {
                 
                 // thicken overlay when aimed
                 if( Math.abs(targetX - desiredX) <= xTol && Math.abs(targetY - desiredY) <= yTol) {
-                    rawImage.drawLine(hA, hB, WPIColor.GREEN, 1);
+                    rawImage.drawLine(vA, vB, WPIColor.GREEN, 1);
                     rawImage.drawLine(hA, hB, WPIColor.GREEN, 1);
                 }
             }
