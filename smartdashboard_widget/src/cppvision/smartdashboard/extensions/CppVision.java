@@ -39,12 +39,17 @@ public class CppVision extends WPICameraExtension  {
     @Override
     public WPIImage processImage(WPIColorImage rawImage) {
 
-        IplImage image = IplImage.createFrom(rawImage.getBufferedImage());
+        // default ovelay
+        rawImage.drawLine(vA, vB, WPIColor.RED, 1);
+        rawImage.drawLine(hA, hB, WPIColor.RED, 1);
     
         // run vision system
         if( Robot.getTable().getBoolean("runVision") ) {
             
             Robot.getTable().putBoolean("doneVision", false);
+            
+            // get image to OpenCV
+            IplImage image = IplImage.createFrom(rawImage.getBufferedImage());
             
             // save image
             cvSaveImage( "image.png", image );
@@ -95,10 +100,6 @@ public class CppVision extends WPICameraExtension  {
             Robot.getTable().putNumber("targetY", targetY);
             
             // draw camera overlay
-            // default ovelay
-            rawImage.drawLine(vA, vB, WPIColor.RED, 1);
-            rawImage.drawLine(hA, hB, WPIColor.RED, 1);
-            
             // "aimed" overlay
             if( targetB == true ) {   
                 
