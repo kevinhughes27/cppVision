@@ -27,8 +27,8 @@ public class CppVision extends WPICameraExtension  {
     // desired target position
     public static int desiredX = 320;
     public static int desiredY = 240;
-    public static int xTol = 5;
-    public static int yTol = 5;
+    public static int xTol = 15;
+    public static int yTol = 15;
     
     // points for the overlays
     public static WPIPoint hA = new WPIPoint( 320, 0 );
