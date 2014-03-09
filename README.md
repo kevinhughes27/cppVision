@@ -3,7 +3,7 @@ cppVision
 
 Framework for creating a FRC Vision System using C++/OpenCV 2.xx
 
-A Smartdashboard widget that calls a c++ executable to perform a Computer Vision Algorithm on the Axis Camera image using OpenCV 2.xx. The image is passed to the c++ executable which runs the vision algorithm and writes the results to a text file ("target.txt"). The widget also draws large cross-hairs over the whole video feed and small cross-hairs over the target found by the c++ executable.
+A Smartdashboard widget that calls a c++ executable to perform a Computer Vision Algorithm on the Axis Camera image using OpenCV 2.xx. The image is passed to the c++ executable which runs the vision algorithm and returns the results. The widget also draws large cross-hairs over the whole video feed and small cross-hairs over the target found by the c++ executable.
 
 To install the Smartdashboard widget simply copy the cppVision.jar file to your Smartdashboard/extensions folder then add it to your Smartdashboard using the drop down menu the same way you add the plain camera widget. You also need to copy your c++ executable to the Smartdashboard folder.
 
