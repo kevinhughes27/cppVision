@@ -1,16 +1,41 @@
 #include <fstream>
-
+#include <iostream>
+#include <string>
 #include <opencv2/core/core.hpp>
 #include <opencv2/highgui/highgui.hpp>
 
 using namespace cv;
 using namespace std;
 
-int main()
+int main(int argc, char *argv[])
 {
-	// OpenCV test
-	Mat image = imread("image.png");
-	imshow("image", image);
+	if(argc < 2)
+	{
+		// load image from stdin
+		vector<uchar> buf;
+		char c;
+		while (cin.get(c)) {
+			buf.push_back( (uchar)c );
+    }
+
+		Mat image = imdecode(Mat(buf), 1);
+		imshow("image", image);
+		waitKey();
+	}
+	else
+	{
+		// load test image
+		Mat image = imread(argv[1]);
+		imshow("image", image);
+		waitKey();
+	}
+
+	/*
+		Perform image processing here and then write the results to "target.txt".
+
+		Note - you'll probably want to remove the waitKey line above after you are
+		sure that the image is being passed correctly.
+	*/
 
 	// File IO test
 	ofstream f;
@@ -19,9 +44,6 @@ int main()
 	f << "320\n";
 	f << "240\n";
 	f.close();
-
-	// waitKey
-	waitKey();
 
 	return 0;
 }
