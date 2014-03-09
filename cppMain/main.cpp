@@ -11,7 +11,7 @@ int main()
 	// OpenCV test
 	Mat image = imread("image.png");
 	imshow("image", image);
-	
+
 	// File IO test
 	ofstream f;
 	f.open ("target.txt");
@@ -19,9 +19,9 @@ int main()
 	f << "320\n";
 	f << "240\n";
 	f.close();
-	
+
 	// waitKey
 	waitKey();
-	
+
 	return 0;
 }
