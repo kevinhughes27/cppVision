@@ -16,7 +16,7 @@ int main(int argc, char *argv[])
 		char c;
 		while (cin.get(c)) {
 			buf.push_back( (uchar)c );
-    }
+	}
 
 		Mat image = imdecode(Mat(buf), 1);
 		imshow("image", image);
